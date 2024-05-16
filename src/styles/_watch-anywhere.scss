@@ -1,0 +1,24 @@
+.watch-anywhere {
+
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    &__text_container {
+
+        padding: 2vw;
+
+        h2 {
+
+            margin-bottom: 24px;
+        }
+    }
+
+    img {
+
+        max-width: 100%;
+
+
+    }
+}
