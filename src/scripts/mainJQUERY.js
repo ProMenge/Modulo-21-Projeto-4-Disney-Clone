@@ -1,7 +1,5 @@
 $(document).ready(function () {
     const $buttons = $('[data-tab-button]');
-    console.log($buttons)
-
     $buttons.on('click', function () {
 
         // Aqui, $(this) refere-se ao botão que foi clicado. 
@@ -19,7 +17,8 @@ $(document).ready(function () {
         removeBotaoAtivo();
         // Adiciona a classe shows__tabs__button--is-active ao botão clicado, destacando-o como o botão ativo.
         $(this).addClass('shows__tabs__button--is-active');
-    });
+    }
+);
 
     function removeBotaoAtivo() {
         $buttons.removeClass('shows__tabs__button--is-active');
@@ -30,4 +29,24 @@ $(document).ready(function () {
         $tabsContainer.removeClass('shows__list--is-active');
 
     }
+
+    // Accordion
+
+    $(document).ready(function(){
+        const classe = 'faq__questions__item--is-open';
+    
+        $('[data-faq-question]').on('click', function(){
+            const $parent = $(this).parent();
+    
+            if ($parent.hasClass(classe)) {
+                $parent.find('.faq__questions__item__answer').slideUp(300, function() {
+                    $parent.removeClass(classe);
+                });
+            } else {
+                $parent.find('.faq__questions__item__answer').slideDown(300, function() {
+                    $parent.addClass(classe);
+                });
+            }
+        });
+    });
 });
