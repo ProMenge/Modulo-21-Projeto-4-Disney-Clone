@@ -1,52 +1,62 @@
 $(document).ready(function () {
     const $buttons = $('[data-tab-button]');
+    const classeAccordion = 'faq__questions__item--is-open';
+    const alturaHeroSection = $(".hero").outerHeight();
+
+    // Tabs
     $buttons.on('click', function () {
-
-        // Aqui, $(this) refere-se ao botão que foi clicado. 
-        // O método .data('tab-button') é usado para obter o valor do atributo data-tab-button do botão clicado.
         const abaAlvo = $(this).data('tab-button');
-
-        // Seleciona o elemento que tem o atributo data-tab-id igual ao valor de abaAlvo.
         const $aba = $(`[data-tab-id=${abaAlvo}]`);
 
         escondeTodasAbas();
-
-        // Adiciona a classe shows__list--is-active à aba selecionada, tornando-a visível.
         $aba.addClass('shows__list--is-active');
 
         removeBotaoAtivo();
-        // Adiciona a classe shows__tabs__button--is-active ao botão clicado, destacando-o como o botão ativo.
         $(this).addClass('shows__tabs__button--is-active');
-    }
-);
+    });
 
     function removeBotaoAtivo() {
         $buttons.removeClass('shows__tabs__button--is-active');
     }
 
     function escondeTodasAbas() {
-        const $tabsContainer = $('[data-tab-id]');
-        $tabsContainer.removeClass('shows__list--is-active');
-
+        $('[data-tab-id]').removeClass('shows__list--is-active');
     }
 
     // Accordion
+    $('[data-faq-question]').on('click', function () {
+        const $parent = $(this).parent();
 
-    $(document).ready(function(){
-        const classe = 'faq__questions__item--is-open';
-    
-        $('[data-faq-question]').on('click', function(){
-            const $parent = $(this).parent();
-    
-            if ($parent.hasClass(classe)) {
-                $parent.find('.faq__questions__item__answer').slideUp(300, function() {
-                    $parent.removeClass(classe);
-                });
-            } else {
-                $parent.find('.faq__questions__item__answer').slideDown(300, function() {
-                    $parent.addClass(classe);
-                });
-            }
-        });
+        if ($parent.hasClass(classeAccordion)) {
+            $parent.find('.faq__questions__item__answer').slideUp(300, function () {
+                $parent.removeClass(classeAccordion);
+            });
+        } else {
+            $parent.find('.faq__questions__item__answer').slideDown(300, function () {
+                $parent.addClass(classeAccordion);
+            });
+        }
     });
+
+    // Hero Section Height
+    console.log(alturaHeroSection);
+
+    // Header visibility based on scroll
+    $(window).scroll(function () {
+        const posicaoAtual = $(window).scrollTop();
+
+        if (posicaoAtual < alturaHeroSection) {
+            ocultaElementosDoHeader();
+        } else {
+            exibeElementosDoHeader();
+        }
+    });
+
+    function ocultaElementosDoHeader() {
+        $('.header').addClass('header--is-hidden');
+    }
+
+    function exibeElementosDoHeader() {
+        $('.header').removeClass('header--is-hidden');
+    }
 });
