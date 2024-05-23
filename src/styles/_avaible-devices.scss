@@ -1,5 +1,4 @@
-.avaible-devices {
-
+.available-devices {
     padding: 5.6vw;
 
     h2 {
@@ -9,11 +8,10 @@
 
     &__list {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
         gap: 24px;
+        grid-template-columns: repeat(4, 1fr);
 
-        @media(max-width:768px){
-
+        @media (max-width: 768px) {
             grid-template-columns: 1fr 1fr;
         }
 
@@ -30,7 +28,6 @@
             }
 
             img {
-
                 max-width: 100%;
             }
         }

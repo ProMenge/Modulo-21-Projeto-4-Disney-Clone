@@ -12,7 +12,7 @@
 
     <!-- Header - com funcionalidade de sumir e aparecer novamente com o rolamento da página -->
 
-    <header class="header ">
+    <header class="header header--is-hidden">
         <div class="header__container">
             <h1 class="">
                 <img class="header__logo" src="./dist/images/disneyplus.svg" alt="DisneyPlus">
@@ -195,7 +195,10 @@
     <!-- Seção do simba dowloads -->
 
     <section class="image-text-section image-text-section--image-full-width">
-        <img src="./dist/images/fundo_rei_leao.png" alt="SImba Bolado da vida">
+        <picture>
+            <source media="(max-width: 768px)" srcset="./dist/images/fundo_rei_leao_celular.png" />
+            <img src="./dist/images/fundo_rei_leao.png" alt="SImba Bolado da vida">
+        </picture>
         <div class="image-text-section__text_container image-text-section--image-full-width__text_container">
             <h2 class="title">
                 Baixe filmes e séries
@@ -210,13 +213,13 @@
 
     <!-- Seção dispositivos disponiveis -->
 
-    <section class="avaible-devices">
+    <section class="available-devices">
 
         <h2 class="title">
             Disponivel nos seus dispositivos favoritos.
         </h2>
-        <ul class="avaible-devices__list">
-            <li class="avaible-devices__list__item">
+        <ul class="available-devices__list">
+            <li class="available-devices__list__item">
                 <img src="./dist/images/dispositivos/computador.png" alt="computador">
                 <h4 class="title--small">Computador</h4>
                 <ul class="text">
@@ -231,7 +234,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="avaible-devices__list__item">
+            <li class="available-devices__list__item">
                 <img src="./dist/images/dispositivos/tv.png" alt="TV">
                 <h4 class="title--small">Computador</h4>
                 <ul class="text">
@@ -258,7 +261,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="avaible-devices__list__item">
+            <li class="available-devices__list__item">
                 <img src="./dist/images/dispositivos/videogames.png" alt="videogames">
                 <h4 class="title--small">Videogames</h4>
                 <ul class="text">
@@ -279,7 +282,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="avaible-devices__list__item">
+            <li class="available-devices__list__item">
                 <img src="./dist/images/dispositivos/celular.png" alt="computador">
                 <h4 class="title--small">Celulares e Tablets</h4>
                 <ul class="text">

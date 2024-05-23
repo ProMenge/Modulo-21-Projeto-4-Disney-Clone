@@ -38,9 +38,6 @@ $(document).ready(function () {
         }
     });
 
-    // Hero Section Height
-    console.log(alturaHeroSection);
-
     // Header visibility based on scroll
     $(window).scroll(function () {
         const posicaoAtual = $(window).scrollTop();
